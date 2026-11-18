@@ -1,0 +1,16 @@
+node_modules
+data
+docs
+scripts
+.git
+.cursor
+.env
+.env.*
+!.env.example
+*.md
+*.code-workspace
+agent-transcripts
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml

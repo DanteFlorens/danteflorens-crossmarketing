@@ -1,0 +1,50 @@
+name: dante-florens
+
+services:
+  florens:
+    build: .
+    image: dante-florens:local
+    container_name: dante-florens
+    init: true
+    ports:
+      - "4177:4177"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      PORT: "4177"
+      HOST: "0.0.0.0"
+      NODE_OPTIONS: "--experimental-sqlite"
+      FAKEL_API_KEY: ${FAKEL_API_KEY:-}
+      FAKEL_MODEL: ${FAKEL_MODEL:-gpt-4o-mini}
+    volumes:
+      # Named volume: SQLite надёжнее, чем bind-mount с Windows/WSL.
+      # Синхронизация с ./data: npm run docker:data:push | docker:data:pull
+      - florens-data:/app/data
+    restart: unless-stopped
+    stop_grace_period: 20s
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 512m
+    cpus: 1.0
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:'+(process.env.PORT||4177)+'/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+volumes:
+  florens-data:
+    name: dante-florens-data

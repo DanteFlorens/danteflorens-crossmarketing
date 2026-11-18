@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <rect width="64" height="64" rx="32" fill="#14110e"/>
+  <!-- handle -->
+  <rect x="29" y="44" width="6" height="14" rx="1.5" fill="#8a6830"/>
+  <path d="M26 44h12l-2 7H28l-2-7z" fill="#c6a56a"/>
+  <!-- DNA flame left -->
+  <path d="M32 10c-8 7-8 14 0 21s8 14 0 19" stroke="#e7d3a4" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- DNA flame right -->
+  <path d="M32 10c8 7 8 14 0 21s-8 14 0 19" stroke="#c6a56a" stroke-width="2.2" stroke-linecap="round" opacity="0.85"/>
+  <!-- rungs -->
+  <line x1="26" y1="16" x2="38" y2="16" stroke="#e7d3a4" stroke-width="1.6" opacity="0.9"/>
+  <line x1="25" y1="24" x2="39" y2="24" stroke="#c6a56a" stroke-width="1.6" opacity="0.85"/>
+  <line x1="26" y1="32" x2="38" y2="32" stroke="#e7d3a4" stroke-width="1.6" opacity="0.9"/>
+  <line x1="25" y1="40" x2="39" y2="40" stroke="#c6a56a" stroke-width="1.6" opacity="0.8"/>
+  <circle cx="32" cy="9" r="2.4" fill="#e7d3a4"/>
+</svg>

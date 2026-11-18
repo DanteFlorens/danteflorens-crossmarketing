@@ -1,0 +1,33 @@
+{
+  "name": "dante-florens",
+  "description": "Платформа кросс-маркетинга Dante Florens. Данные — SQLite (data/florens.sqlite).",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "check": "node scripts/selfcheck.js",
+    "db:status": "node scripts/db-status.js",
+    "db:roundtrip": "node scripts/db-roundtrip.js",
+    "db:scale": "node scripts/db-scale.js",
+    "proof:exchange": "node scripts/proof-exchange.js",
+    "proof:crossflow": "node scripts/proof-crossflow.js",
+    "proof:coopetition": "node scripts/proof-coopetition.js",
+    "db:proof": "node scripts/proof-sqlite.js",
+    "db:audit": "node scripts/audit-store.js",
+    "docker:up": "docker compose up -d --build",
+    "docker:up:bind": "docker compose -f docker-compose.bind.yml up -d --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f florens",
+    "docker:ps": "docker compose ps",
+    "docker:restart": "docker compose restart florens",
+    "docker:data:push": "node scripts/docker-data-sync.js push",
+    "docker:data:pull": "node scripts/docker-data-sync.js pull"
+  },
+  "dependencies": {
+    "pdfkit": "^0.20.2"
+  }
+}
